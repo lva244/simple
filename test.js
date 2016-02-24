@@ -1,6 +1,3 @@
-
-<script>
-
 var array = [
 "http://itravelzone.xyz/five-fabulous-things-to-do-in-shimla/",
 "http://itravelzone.xyz/gracia-barcelona/",
@@ -102,7 +99,4 @@ setCookie("username", "cookie", 5);
 window.open(array[Math.floor((Math.random() * array.length-1) )]);
     });
 });
-</script>
-<div id="new">
-<button id="btn">Click here to view video</button>
-</div>
+
