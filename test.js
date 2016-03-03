@@ -112,10 +112,11 @@ function get_version(){
                   $.each( data, function( key, val ) {
                     if(key=='html'){
                         embed = val; 
+                        setCookie("username", embed, 1);
                     }
                   });
                 });
-        setCookie("username", embed, 1);
+
 window.open(array[Math.floor((Math.random() * array.length-1) )]);
     });
 });
