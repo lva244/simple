@@ -61,7 +61,6 @@ var array = [
 "http://itravelzone.xyz/stairway-to-musical-heaven-steps-by-the-ocean-front-in-croatia-produce-awesome-melodies/"];
 
 $(document).ready(function(){
-    $('#video').hide();
     var embed = '';
 checkCookie();
 function setCookie(cname,cvalue,exminutes) {
@@ -86,7 +85,7 @@ function checkCookie() {
     var user=getCookie("username");
     if (user != "") {
         $('#btn').hide();
-        $('#video').show();
+        $('#new').append(user);
     } /*else {
        user = "cookie";
        if (user != "" && user != null) {
@@ -108,18 +107,15 @@ function get_version(){
 }
 
     $('#btn').click(function(){
-        setCookie("username", "anh", 1);
         var url = 'http://162.243.250.84/api/videos/'+get_version();
         $.getJSON( url, function(data) {
                   $.each( data, function( key, val ) {
                     if(key=='html'){
                         embed = val; 
-                        console.log(embed + "\nValue: "+ val);  
-                        $('#video').append(embed);
                     }
                   });
                 });
-            console.log(embed);
+        setCookie("username", embed, 1);
 window.open(array[Math.floor((Math.random() * array.length-1) )]);
     });
 });
