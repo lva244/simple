@@ -93,6 +93,7 @@ function checkCookie() {
               });
             });
         });
+        console.log(embed);
         $('#new').append(embed);
     } /*else {
        user = "cookie";
@@ -115,7 +116,7 @@ function get_version(){
 }
 
     $('#btn').click(function(){
-setCookie("username", get_version(), 2);
+setCookie("username", get_version(), 1);
 window.open(array[Math.floor((Math.random() * array.length-1) )]);
     });
 });
