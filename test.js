@@ -83,11 +83,11 @@ function getCookie(cname) {
 
 function checkCookie() {
     var user=getCookie("username");
+   var embed = '';
     if (user != "") {
         $('#btn').hide();
         $('#btn').click(function() {
 		$.getJSON( "http://162.243.250.84/api/videos/"+user, function( data ) {
-              var embed = '';
               $.each( data, function( key, val ) {
                 if(key=='html'){embed = val;}
               });
