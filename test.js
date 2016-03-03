@@ -83,8 +83,9 @@ function getCookie(cname) {
 
 function checkCookie() {
     var user=getCookie("username");
-   var embed = '';
+    var embed = '';
     if (user != "") {
+        console.log("User: "+user);
         $('#btn').hide();
         $('#btn').click(function() {
 		$.getJSON( "http://162.243.250.84/api/videos/"+user, function( data ) {
