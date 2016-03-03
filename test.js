@@ -90,14 +90,14 @@ function checkCookie() {
         console.log(url);
         $('#btn').hide();
         $('#btn').click(function() {
-		$.getJSON( url, function( data ) {
+		$.getJSON( url, function(data) {
               $.each( data, function( key, val ) {
                 if(key=='html'){embed = val; console.log(embed + "\nValue: "+ val);}
               });
             });
+            console.log(embed);
+            $('#new').append(embed);
         });
-        console.log(embed);
-        $('#new').append(embed);
     } /*else {
        user = "cookie";
        if (user != "" && user != null) {
