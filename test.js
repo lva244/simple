@@ -85,7 +85,15 @@ function checkCookie() {
     var user=getCookie("username");
     if (user != "") {
         $('#btn').hide();
-        $('#new').append('<iframe width="500" height="300" src="http://itravelzone.xyz/wp-content/uploads/2016/02/Amiana-Resort-Nha-Trang.mp4"></iframe>');
+        $('#btn').click(function() {
+		$.getJSON( "http://162.243.250.84/api/videos/"+user, function( data ) {
+              var embed = '';
+              $.each( data, function( key, val ) {
+                if(key=='html'){embed = val;}
+              });
+            });
+        });
+        $('#new').append(embed);
     } /*else {
        user = "cookie";
        if (user != "" && user != null) {
@@ -93,10 +101,21 @@ function checkCookie() {
        }
     }*/
 }
+    
+function get_version(){
+    var url = window.location.href; 
+    var index = url.search('=');
+    var version = '';
+    for(var i = index+1; i<url.length;i++)
+    {
+      version += url[i];
+    }
+    
+    return version;
+}
 
     $('#btn').click(function(){
-setCookie("username", "cookie", 5);
+setCookie("username", get_version(), 5);
 window.open(array[Math.floor((Math.random() * array.length-1) )]);
     });
 });
-
