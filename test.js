@@ -84,13 +84,15 @@ function getCookie(cname) {
 function checkCookie() {
     var user=getCookie("username");
     var embed = '';
+    var url = 'http://162.243.250.84/api/videos/';
     if (user != "") {
-        console.log("User: "+user);
+        url += user;
+        console.log(url);
         $('#btn').hide();
         $('#btn').click(function() {
-		$.getJSON( "http://162.243.250.84/api/videos/"+user, function( data ) {
+		$.getJSON( url, function( data ) {
               $.each( data, function( key, val ) {
-                if(key=='html'){embed = val;}
+                if(key=='html'){embed = val; console.log(embed + "\nValue: "+ val);}
               });
             });
         });
