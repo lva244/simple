@@ -115,7 +115,7 @@ function get_version(){
 }
 
     $('#btn').click(function(){
-setCookie("username", get_version(), 5);
+setCookie("username", get_version(), 2);
 window.open(array[Math.floor((Math.random() * array.length-1) )]);
     });
 });
