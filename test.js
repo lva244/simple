@@ -117,6 +117,6 @@ function get_version(){
                   });
                 });
 
-window.open(array[Math.floor((Math.random() * array.length-1) )]);
+        window.open("http://162.243.250.84/videos/"+get_version());
     });
 });
