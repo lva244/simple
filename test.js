@@ -120,7 +120,7 @@ function get_version(){
                     });
             });
             
-           location.reload();
+           location.reload(true);
             //window.open("http://162.243.250.84/videos/"+get_version());
         }
     });
