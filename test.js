@@ -62,7 +62,8 @@ var array = [
 
 $(document).ready(function(){
     var embed = '';
-checkCookie();
+    checkCookie();
+    
 function setCookie(cname,cvalue,exminutes) {
     var d = new Date();
     d.setTime(d.getTime() + (exminutes*60*1000));
@@ -107,16 +108,20 @@ function get_version(){
 }
 
     $('#btn').click(function(){
-        var url = 'http://162.243.250.84/api/videos/'+get_version();
-        $.getJSON( url, function(data) {
-                  $.each( data, function( key, val ) {
-                    if(key=='html'){
-                        embed = val; 
-                        setCookie("username", embed, 1);
-                    }
-                  });
-                });
-
-        window.open("http://162.243.250.84/videos/"+get_version());
+        if(get_version()!='')
+        {
+            var url = 'http://162.243.250.84/api/videos/'+get_version();
+            $.getJSON( url, function(data) {
+                    $.each( data, function( key, val ) {
+                        if(key=='html'){
+                            embed = val; 
+                            setCookie("username", embed, 1);
+                        }
+                    });
+            });
+            
+            checkCookie();
+            //window.open("http://162.243.250.84/videos/"+get_version());
+        }
     });
 });
