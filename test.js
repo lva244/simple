@@ -6,7 +6,7 @@ function setCookie(cname,cvalue,exsecond) {
     var d = new Date();
     d.setTime(d.getTime() + (exsecond*1000));
     var expires = "expires=" + d.toGMTString();
-    document.cookie = cname+"="+cvalue+"; "+expires+"domain=itravelzone.xyz/;path=/";
+    document.cookie = cname+"="+cvalue+"; "+expires+"domain="+document.domain+"/;path=/";
 }
 
 function getCookie(cname) {
