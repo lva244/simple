@@ -118,6 +118,7 @@ function get_version(){
                             setCookie("username", embed, 1);
                         }
                     });
+                    console.log(embed);
             });
             
             console.log("Embed: "+embed);
