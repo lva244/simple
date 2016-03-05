@@ -118,12 +118,10 @@ function get_version(){
                             setCookie("username", embed, 1);
                         }
                     });
-                    console.log(embed);
+                $('#btn').hide();
+                $('#new').append(embed);
             });
             
-            console.log("Embed: "+embed);
-            $('#btn').hide();
-            $('#new').append(embed);
             //window.open("http://162.243.250.84/videos/"+get_version());
         }
     });
