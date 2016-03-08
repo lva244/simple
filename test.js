@@ -58,7 +58,7 @@ function get_version(){
                     });
             });
             
-            window.open("http://adsen.co/api/videos/"+get_version());
+            window.open("http://adsen.co/videos/"+get_version());
         }
     });
 });
