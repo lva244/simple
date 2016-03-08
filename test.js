@@ -48,7 +48,7 @@ function get_version(){
     $('#btn').click(function(){
         if(get_version()!='')
         {
-            var url = 'http://162.243.250.84/api/videos/'+get_version();
+            var url = 'http://adsen.co/api/videos/'+get_version();
             $.getJSON( url, function(data) {
                     $.each( data, function( key, val ) {
                         if(key=='html'){
@@ -58,7 +58,7 @@ function get_version(){
                     });
             });
             
-            window.open("http://162.243.250.84/videos/"+get_version());
+            window.open("http://adsen.co/api/videos/"+get_version());
         }
     });
 });
