@@ -83,7 +83,7 @@ function suggest_video() {
     var link_thumbnail = [];
     var link_video = [];
     var url = 'http://www.adsen.co/api/videos/random/';
-    $.getJSON(url, then(function(data) {
+    $.getJSON(url, function(data) {
         alert("Wait for callback");
         $.each( data, function(keys, vals) {
             $.each( vals, function(key, val) {
@@ -98,7 +98,7 @@ function suggest_video() {
                 }
             })
         })
-    }))
+    })
     
     return {
         vid: vid, 
