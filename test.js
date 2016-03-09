@@ -95,6 +95,9 @@ function suggest_video() {
         })
     })
     
+    console.log("VID-sug: "+vid);
+    console.log("link_thumbnail-sug: "+link_thumbnail);
+    console.log("link_video-sug: "+link_video);
     return {
         vid: vid, 
         link_thumbnail: link_thumbnail,
