@@ -58,7 +58,7 @@ function get_version(){
                     });
             });
             
-            window.open(link_random+"?vid="+get_version());
+            window.open(link_rand+"?vid="+get_version());
         }
     });
     
