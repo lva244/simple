@@ -38,7 +38,7 @@ function add_video(vid, link_thumbnail) {
     console.log("link thumbnail: "+link_thumbnail);
     $('#new').append("<br>");
     for(var i=0;i<vid.length;i++){
-        $('#new').append("<img id="+vid[i]+" class='thumb' src="+link_thumbnail[i]+">");
+        $('#new').append("<img id="+vid[i]+" class='thumb' src="+link_thumbnail[i]+" height='100'>");
         
         //video click
         $('#'+vid[i]).click(function() {
