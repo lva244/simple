@@ -26,23 +26,24 @@ function checkCookie() {
         $('#btn').hide();
         $('#new').append(user);
         
-        var suggest = suggest_video().always(function () {
-            var vid = suggest.vid;
-            var link_thumbnail = suggest.link_thumbnail;
-            alert("Check");
-            console.log("Vid: "+vid);
-            console.log("link thumbnail: "+link_thumbnail);
-            for(var i=0;i<vid.length;i++){
-                $('#new').append("<img id=vid[i] class='thumb' src=link_thumbnail[i] width='150'>");
-                
-                //video click
-                $('#'+vid[i]).click(function() {
-                    click_event(this.id);
-                })
-            }    
-        });
-        
+        var suggest = suggest_video();
     }
+}
+
+//add video 
+function add_video(vid, link_thumbnail) {
+    var vid = vid;
+    var link_thumbnail = link_thumbnail;
+    console.log("Vid: "+vid);
+    console.log("link thumbnail: "+link_thumbnail);
+    for(var i=0;i<vid.length;i++){
+        $('#new').append("<img id=vid[i] class='thumb' src=link_thumbnail[i] width='150'>");
+        
+        //video click
+        $('#'+vid[i]).click(function() {
+            click_event(this.id);
+        })
+    }    
 }
     
 function get_version(){
@@ -100,13 +101,9 @@ function suggest_video() {
                 }
             })
         })
+        add_video(vid, link_thumbnail);
     })
-    
-    return {
-        vid: vid, 
-        link_thumbnail: link_thumbnail,
-        link_video: link_video
-    }
+   
     //window.open(link_rand+"?vid="+get_version());
 };    
     
@@ -121,3 +118,15 @@ function suggest_video() {
     
 });
 
+var vids = suggest.vid;
+        var link_thumbnails = suggest.link_thumbnail;
+        alert("Vid: "+vids );
+        alert("link thumbnail: "+link_thumbnails);
+        for(var i=0;i<vid.length;i++){
+            $('#new').append("<img id=vid[i] class='thumb' src=link_thumbnail[i] width='150'>");
+            
+            //video click
+            $('#'+vid[i]).click(function() {
+                click_event(this.id);
+            })
+        }
