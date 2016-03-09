@@ -26,7 +26,18 @@ function checkCookie() {
         $('#btn').hide();
         $('#new').append(user);
         
+        var suggest = suggest_video();
+        var vid = suggest.vid;
+        var link_thumbnail = suggest.link_thumbnail;
         
+        for(var i=0;i<vid.length;i++){
+            $('#new').append("<img id=vid[i] class='thumb' src=link_thumbnail[i] width='150'>");
+            
+            //video click
+            $('#'+vid[i]).click(function() {
+                click_event(this.id);
+            })
+        }    
     }
 }
     
@@ -45,10 +56,13 @@ function get_version(){
     return version;
 }
 
-    $('#btn').click(function(){
-        if(get_version()!='')
-        {
-            var url = 'http://adsen.co/api/videos/'+get_version();
+function click_event(vid) {
+    if(vid==null)
+    {
+        var url = 'http://adsen.co/api/videos/'+get_version();
+    }
+    else
+        var url = 'http://adsen.co/api/videos/'+vid;
             $.getJSON( url, function(data) {
                     $.each( data, function( key, val ) {
                         if(key=='html'){
@@ -58,13 +72,13 @@ function get_version(){
                     });
             });
             
-            window.open(link_rand+"?vid="+get_version());
-        }
-    });
+    window.open(link_rand+"?vid="+get_version());
+}
     
 function suggest_video() {
     var vid = [];
     var link_thumbnail = [];
+    var link_video = [];
     var url = 'http://www.adsen.co/api/videos/random/';
     $.getJSON(url, function(data) {
         $.each( data, function(key, val) {
@@ -74,11 +88,28 @@ function suggest_video() {
             if(key=='thumbnail_url'){
                 link_thumbnail.push(val);
             }
+            if(key=='html'){
+                link_video.push(val);
+            }
         })
     })
     
-    window.open(link_rand+"?vid="+get_version());
+    return {
+        vid: vid, 
+        link_thumbnail: link_thumbnail,
+        link_video: link_video
+    }
+    //window.open(link_rand+"?vid="+get_version());
 };    
+    
+    
+    //btn click
+    $('#btn').click(function(){
+        if(get_version()!='')
+        {
+            click_event(null);
+        }
+    });
     
 });
 
