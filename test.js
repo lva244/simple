@@ -58,7 +58,23 @@ function get_version(){
                     });
             });
             
-            window.open("http://adsen.co/videos/"+get_version());
+            window.open(link_random+"?vid="+get_version());
         }
     });
+    
+function suggest_video() {
+    var count_video = 0;
+    var link_video = [];
+    var url = 'http://www.adsen.co/api/videos/random/';
+    $.getJSON(url, function(data) {
+        $.each( data, function(key, val) {
+            if(key=='html'){
+                count_video ++;
+                link_video.push(val);
+            }
+        })
+    })
+};    
+    
 });
+
