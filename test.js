@@ -37,9 +37,12 @@ function get_version(){
     var url = window.location.href; 
     var index = url.search('=');
     var version = '';
-    for(var i = index+1; i<url.length;i++)
+    if(index!=-1)
     {
-      version += url[i];
+        for(var i = index+1; i<url.length;i++)
+        {
+        version += url[i];
+        }
     }
     
     return version;
