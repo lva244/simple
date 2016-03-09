@@ -1,8 +1,6 @@
 $(document).ready(function(){
     var embed = '';
     checkCookie();
-    $('.thumb').css({'border-color': 'red',
-            'border-style': 'double', 'height': '100', 'width': '150'});
             
 function setCookie(cname,cvalue,exsecond) {
     var d = new Date();
@@ -40,7 +38,7 @@ function add_video(vid, link_thumbnail) {
     console.log("link thumbnail: "+link_thumbnail);
     $('#new').append("<br>");
     for(var i=0;i<vid.length;i++){
-        $('#new').append("<img id="+vid[i]+" class='thumb' src="+link_thumbnail[i]+" width='150' height='100'>");
+        $('#new').append("<img id="+vid[i]+" class='thumb' src="+link_thumbnail[i]+" width='150'' height='100'' style='border-color: red; border-style: double'");
         
         //video click
         $('#'+vid[i]).click(function() {
