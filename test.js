@@ -85,12 +85,15 @@ function suggest_video() {
         $.each( data, function(key, val) {
             if(key=='id'){
                 vid.push(val);
+                console.log(val);
             }
             if(key=='thumbnail_url'){
                 link_thumbnail.push(val);
+                console.log(val);
             }
             if(key=='html'){
                 link_video.push(val);
+                console.log(val);
             }
         })
     })
