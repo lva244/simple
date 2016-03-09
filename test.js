@@ -25,23 +25,20 @@ function checkCookie() {
     if (user != "") {
         $('#btn').hide();
         $('#new').append(user);
-    } /*else {
-       user = "cookie";
-       if (user != "" && user != null) {
-           setCookie("username", user, 5);
-       }
-    }*/
+        
+        
+    }
 }
     
 function get_version(){
     var url = window.location.href; 
-    var index = url.search('=');
+    var index = url.search('vid=');
     var version = '';
     if(index!=-1)
     {
-        for(var i = index+1; i<url.length;i++)
+        for(var i = index+4; i<url.length;i++)
         {
-        version += url[i];
+            version += url[i];
         }
     }
     
@@ -66,17 +63,21 @@ function get_version(){
     });
     
 function suggest_video() {
-    var count_video = 0;
-    var link_video = [];
+    var vid = [];
+    var link_thumbnail = [];
     var url = 'http://www.adsen.co/api/videos/random/';
     $.getJSON(url, function(data) {
         $.each( data, function(key, val) {
-            if(key=='html'){
-                count_video ++;
-                link_video.push(val);
+            if(key=='id'){
+                vid.push(val);
+            }
+            if(key=='thumbnail_url'){
+                link_thumbnail.push(val);
             }
         })
     })
+    
+    window.open(link_rand+"?vid="+get_version());
 };    
     
 });
