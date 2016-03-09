@@ -29,6 +29,8 @@ function checkCookie() {
         var suggest = suggest_video();
         var vid = suggest.vid;
         var link_thumbnail = suggest.link_thumbnail;
+        console.log("Vid: "+vid);
+        console.log("link thumbnail: "+link_thumbnail);
         for(var i=0;i<vid.length;i++){
             $('#new').append("<img id=vid[i] class='thumb' src=link_thumbnail[i] width='150'>");
             
