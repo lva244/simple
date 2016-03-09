@@ -117,16 +117,3 @@ function suggest_video() {
     });
     
 });
-
-var vids = suggest.vid;
-        var link_thumbnails = suggest.link_thumbnail;
-        alert("Vid: "+vids );
-        alert("link thumbnail: "+link_thumbnails);
-        for(var i=0;i<vid.length;i++){
-            $('#new').append("<img id=vid[i] class='thumb' src=link_thumbnail[i] width='150'>");
-            
-            //video click
-            $('#'+vid[i]).click(function() {
-                click_event(this.id);
-            })
-        }
