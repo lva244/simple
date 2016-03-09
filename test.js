@@ -2,7 +2,7 @@ $(document).ready(function(){
     var embed = '';
     checkCookie();
     $('.thumb').css({'border-color': 'red',
-            'border-style': 'double'});
+            'border-style': 'double', 'height': '100', 'width': '150'});
             
 function setCookie(cname,cvalue,exsecond) {
     var d = new Date();
