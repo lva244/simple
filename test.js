@@ -29,7 +29,6 @@ function checkCookie() {
         var suggest = suggest_video();
         var vid = suggest.vid;
         var link_thumbnail = suggest.link_thumbnail;
-        console.log("VID: "+vid);
         for(var i=0;i<vid.length;i++){
             $('#new').append("<img id=vid[i] class='thumb' src=link_thumbnail[i] width='150'>");
             
@@ -82,25 +81,21 @@ function suggest_video() {
     var link_video = [];
     var url = 'http://www.adsen.co/api/videos/random/';
     $.getJSON(url, function(data) {
-        $.each( data, function(key, val) {
-            if(key=='id'){
-                vid.push(val);
-                console.log(val);
-            }
-            if(key=='thumbnail_url'){
-                link_thumbnail.push(val);
-                console.log(val);
-            }
-            if(key=='html'){
-                link_video.push(val);
-                console.log(val);
-            }
+        $.each( data, function(keys, vals) {
+            $.each( vals, function(key, val) {
+                if(key=='id'){
+                    vid.push(val);
+                }
+                if(key=='thumbnail_url'){
+                    link_thumbnail.push(val);
+                }
+                if(key=='html'){
+                    link_video.push(val);
+                }
+            })
         })
     })
     
-    console.log("VID-sug: "+vid);
-    console.log("link_thumbnail-sug: "+link_thumbnail);
-    console.log("link_video-sug: "+link_video);
     return {
         vid: vid, 
         link_thumbnail: link_thumbnail,
