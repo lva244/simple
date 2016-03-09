@@ -77,8 +77,13 @@ function click_event(vid) {
                 }
             });
     });
-            
-    window.open(link_rand+"?vid="+get_version());
+    
+    if(vid==null)
+    {        
+        window.open(link_rand+"?vid="+get_version());
+    }
+    else
+        window.open(link_rand+"?vid="+vid);
 }
     
 function suggest_video() {
