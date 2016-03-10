@@ -65,10 +65,10 @@ function get_version(){
 function click_event(vid) {
     if(vid==null)
     {
-        var url = 'http://adsen.co/api/videos/'+get_version();
+        var url = 'http://adsen.co/api/videos/'+get_version()+'/';
     }
     else
-        var url = 'http://adsen.co/api/videos/'+vid;
+        var url = 'http://adsen.co/api/videos/'+vid+'/';
         
     $.getJSON( url, function(data) {
             $.each( data, function( key, val ) {
@@ -117,7 +117,19 @@ function suggest_video() {
     $('#btn').click(function(){
         if(get_version()!='')
         {
-            click_event(null);
+            var url = 'http://adsen.co/api/videos/'+get_version()+'/';
+            $.getJSON( url, function(data) {
+            $.each( data, function( key, val ) {
+                if(key=='html'){
+                    embed = val; 
+                    setCookie("username", embed, 15);
+                }
+            });
+    });
+    
+    
+    window.open(link_rand+"?vid="+get_version());
+            //click_event(null);
         }
     });
     
