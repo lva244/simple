@@ -26,7 +26,7 @@ function checkCookie() {
         $('#btn').hide();
         $('#new').append(user);
         
-        var suggest = suggest_video();
+        //var suggest = suggest_video();
     }
 }
 
