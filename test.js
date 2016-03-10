@@ -74,16 +74,16 @@ function click_event(vid) {
             $.each( data, function( key, val ) {
                 if(key=='html'){
                     embed = val; 
-                    setCookie("username", embed, 15);
-                    
-                    if(vid==null)
+                    setCookie("username", embed, 15);     
+                }
+            });
+            
+            if(vid==null)
                     {        
                         window.open(link_rand+"?vid="+get_version()+'/');
                     }
                     else
                         window.open(link_rand+"?vid="+vid+'/');
-                }
-            });
     });
     
     
