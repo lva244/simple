@@ -26,7 +26,7 @@ function checkCookie() {
         $('#btn').hide();
         $('#new').append(user);
         
-        //var suggest = suggest_video();
+        var suggest = suggest_video();
     }
 }
 
@@ -76,16 +76,15 @@ function click_event(vid) {
                     embed = val; 
                     setCookie("username", embed, 15);     
                 }
-            });
-            
-           
+            });        
     });
-     if(vid==null)
-            {        
-                window.open(link_rand+"?vid="+get_version()+'/');
-            }
-            else
-                window.open(link_rand+"?vid="+vid+'/');
+    
+    if(vid==null)
+    {        
+        window.open(link_rand+"?vid="+get_version()+'/');
+    }
+    else
+        window.open(link_rand+"?vid="+vid+'/');
     
 }
     
