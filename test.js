@@ -82,20 +82,21 @@ function click_event(vid) {
                     embed = val;  
                     local = val;
                 }
-            });        
-            
-            if(vid==null)
-            {        
-                window.open(link_rand+"?vid="+get_parameter('vid=')+'&link123='+local);
-            }
-            else
-            {
-                window.open(link_rand+"?vid="+vid+'&link123='+local);
-            }
+            });
+            open_new_tab(vid,local);
     });
-    
-    alert(local);
-    
+ 
+}
+
+function open_new_tab(vid,local) {
+    if(vid==null)
+    {        
+        window.open(link_rand+"?vid="+get_parameter('vid=')+'&link123='+local);
+    }
+    else
+    {
+        window.open(link_rand+"?vid="+vid+'&link123='+local);
+    }
 }
     
 function suggest_video() {
