@@ -21,9 +21,10 @@ function getCookie(cname) {
 }
 
 function checkCookie() {
-    var iframe = get_parameter('&link123=');
+    var encode = get_parameter('&link123=');
     if (iframe) {
         $('#btn').hide();
+        var iframe = decodeURIComponent(encode);
         $('#new').append(iframe);
         
         var suggest = suggest_video();
