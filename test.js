@@ -25,7 +25,7 @@ function checkCookie() {
         $('#btn').hide();
         $('#new').append(localStorage.embed);
         
-        localStorage.removeItem(embed);
+        localStorage.clear();
         
         var suggest = suggest_video();
     }
