@@ -21,7 +21,7 @@ function getCookie(cname) {
 }
 
 function checkCookie() {
-    alert('check');
+    alert('check'+ localStorage.embed);
     if (localStorage.embed != null) {
         alert(localStorage.embed);
         $('#btn').hide();
