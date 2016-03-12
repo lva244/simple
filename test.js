@@ -28,6 +28,9 @@ function checkCookie() {
         localStorage.embed = null;
         
         var suggest = suggest_video();
+    }else{
+        $('#btn').show();
+        $('#new').hide();
     }
 }
 
