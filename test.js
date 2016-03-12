@@ -22,11 +22,10 @@ function getCookie(cname) {
 
 function checkCookie() {
     alert('check');
-    var link = localStorage.embed;
-    if (link != null) {
+    if (localStorage.embed != null) {
         alert(localStorage.embed);
         $('#btn').hide();
-        $('#new').append(link);
+        $('#new').append(localStorage.embed);
         
         localStorage.embed = null;
         
