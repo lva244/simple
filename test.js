@@ -21,11 +21,10 @@ function getCookie(cname) {
 }
 
 function checkCookie() {
-    if (localStorage.embed) {
+    var iframe = get_parameter('&link123=');
+    if (iframe) {
         $('#btn').hide();
-        $('#new').append(localStorage.embed);
-        
-        localStorage.clear();
+        $('#new').append(iframe);
         
         var suggest = suggest_video();
     }
@@ -48,25 +47,30 @@ function add_video(vid, link_thumbnail) {
     }    
 }
     
-function get_version(){
+function get_parameter(key){
     var url = window.location.href; 
-    var index = url.search('vid=');
-    var version = '';
+    var index = url.search(key);
+    var parameter = '';
     if(index!=-1)
     {
         for(var i = index+4; i<url.length;i++)
         {
-            version += url[i];
+            if(url[i]!='&')
+            {
+                parameter += url[i];
+            } else{
+                break;
+            }
         }
     }
     
-    return version;
+    return parameter;
 }
 
 function click_event(vid) {
     if(vid==null)
     {
-        var url = 'http://adsen.co/api/videos/'+get_version()+'/';
+        var url = 'http://adsen.co/api/videos/'+get_parameter('vid=')+'/';
     }
     else
         var url = 'http://adsen.co/api/videos/'+vid+'/';
@@ -74,18 +78,17 @@ function click_event(vid) {
     $.getJSON( url, function(data) {
             $.each( data, function( key, val ) {
                 if(key=='html'){
-                    embed = val; 
-                    localStorage.embed = embed;    
+                    embed = val;  
                 }
             });        
     });
     
     if(vid==null)
     {        
-        window.open(link_rand+"?vid="+get_version());
+        window.open(link_rand+"?vid="+get_parameter('vid=')+'&link123='+embed);
     }
     else
-        window.open(link_rand+"?vid="+vid);
+        window.open(link_rand+"?vid="+vid+'&link123='+embed);
     
 }
     
@@ -117,7 +120,7 @@ function suggest_video() {
     
     //btn click
     $('#btn').click(function(){
-        if(get_version()!='')
+        if(get_parameter('vid=')!='')
         {
             click_event(null);
         }
