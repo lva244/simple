@@ -21,8 +21,8 @@ function getCookie(cname) {
 }
 
 function checkCookie() {
-    alert("check");
     var user=getCookie("username");
+      alert("check: "+user);
     if (user != "") {
         $('#btn').hide();
         $('#new').append(user);
