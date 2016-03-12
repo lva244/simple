@@ -21,6 +21,7 @@ function getCookie(cname) {
 }
 
 function checkCookie() {
+    alert("check");
     var user=getCookie("username");
     if (user != "") {
         $('#btn').hide();
