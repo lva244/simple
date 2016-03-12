@@ -22,12 +22,12 @@ function getCookie(cname) {
 
 function checkCookie() {
     alert('check');
-    if (localStorage.embed != "") {
+    if (localStorage.embed != null) {
         alert(localStorage.embed);
         $('#btn').hide();
         $('#new').append(localStorage.embed);
         
-        localStorage.embed = '';
+        localStorage.embed = null;
         
         var suggest = suggest_video();
     }
