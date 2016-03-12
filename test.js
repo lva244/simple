@@ -21,16 +21,13 @@ function getCookie(cname) {
 }
 
 function checkCookie() {
-    if (localStorage.embed != null) {
+    if (localStorage.embed != '') {
         $('#btn').hide();
         $('#new').append(localStorage.embed);
         
-        localStorage.embed = null;
+        localStorage.embed = '';
         
         var suggest = suggest_video();
-    }else{
-        $('#btn').show();
-        $('#new').hide();
     }
 }
 
