@@ -25,7 +25,6 @@ function checkCookie() {
     if (encode != '') {
         $('#btn').hide();
         var iframe = decodeURIComponent(encode);
-        alert("Iframe: "+iframe);
         $('#new').append(iframe);
         
         var suggest = suggest_video();
@@ -36,8 +35,6 @@ function checkCookie() {
 function add_video(vid, link_thumbnail) {
     var vid = vid;
     var link_thumbnail = link_thumbnail;
-    console.log("Vid: "+vid);
-    console.log("link thumbnail: "+link_thumbnail);
     $('#new').append("<br>");
     for(var i=0;i<vid.length;i++){
         $('#new').append("<img id="+vid[i]+" class='thumb' src="+link_thumbnail[i]+" height='100' width='150' >");
@@ -57,11 +54,16 @@ function get_parameter(key){
     {
         for(var i = index+key.length; i<url.length;i++)
         {
-            if(url[i]!='&')
+            if(key=='vid=')
             {
+                if(typeof(url[i])) 
+                {
+                    parameter += url[i];
+                }
+            }
+            
+            if(key=='&link123='){
                 parameter += url[i];
-            } else{
-                break;
             }
         }
     }
