@@ -76,16 +76,30 @@ function click_event(vid) {
     else
         var url = 'http://adsen.co/api/videos/'+vid+'/';
         
-    $.getJSON( url, function(data) {
+   /* $.getJSON( url, function(data) {
             $.each( data, function( key, val ) {
                 if(key=='html'){
                     embed = val;  
                     local = val;
                 }
-            });
+            });    
             open_new_tab(vid,local);
+    });*/
+    
+    $.ajax({
+        url: url,
+        dataType: 'json',
+        async: false,
+        success: function(data) {
+            $.each( data, function( key, val ) {
+                if(key=='html'){
+                    embed = val;  
+                    local = val;
+                }
+            });   
+            open_new_tab(vid,local);
+        }
     });
- 
 }
 
 function open_new_tab(vid,local) {
