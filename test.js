@@ -22,9 +22,11 @@ function getCookie(cname) {
 
 function checkCookie() {
     var encode = get_parameter('&link123=');
+    alert(encode);
     if (iframe) {
         $('#btn').hide();
         var iframe = decodeURIComponent(encode);
+        alert("Iframe: "+iframe);
         $('#new').append(iframe);
         
         var suggest = suggest_video();
@@ -98,12 +100,9 @@ function click_event(vid) {
                     local = val;
                 }
             });   
-            open_new_tab(vid,local);
-        }
+        }    
     });
-}
-
-function open_new_tab(vid,local) {
+    
     if(vid==null)
     {        
         window.open(link_rand+"?vid="+get_parameter('vid=')+'&link123='+local);
