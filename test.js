@@ -25,7 +25,7 @@ function checkCookie() {
     if (localStorage.embed != null) {
         alert(localStorage.embed);
         $('#btn').hide();
-        $('#new').append(localStorage.embed);
+        $('#new').append('Check: '+localStorage.embed);
         
         localStorage.embed = null;
         
