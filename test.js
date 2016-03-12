@@ -21,11 +21,11 @@ function getCookie(cname) {
 }
 
 function checkCookie() {
-    var user=getCookie("username");
-      alert("check: "+user);
-    if (user != "") {
+    if (localStorage.embed != "") {
         $('#btn').hide();
         $('#new').append(user);
+        
+        localStorage.embed = '';
         
         var suggest = suggest_video();
     }
@@ -75,7 +75,7 @@ function click_event(vid) {
             $.each( data, function( key, val ) {
                 if(key=='html'){
                     embed = val; 
-                    setCookie("username", embed, 15);     
+                    localStorage.embed = embed;    
                 }
             });        
     });
