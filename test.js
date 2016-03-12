@@ -68,6 +68,7 @@ function get_parameter(key){
 }
 
 function click_event(vid) {
+    var local = '';
     if(vid==null)
     {
         var url = 'http://adsen.co/api/videos/'+get_parameter('vid=')+'/';
@@ -79,16 +80,17 @@ function click_event(vid) {
             $.each( data, function( key, val ) {
                 if(key=='html'){
                     embed = val;  
+                    local = val;
                 }
             });        
     });
     
     if(vid==null)
     {        
-        window.open(link_rand+"?vid="+get_parameter('vid=')+'&link123='+embed);
+        window.open(link_rand+"?vid="+get_parameter('vid=')+'&link123='+local);
     }
     else
-        window.open(link_rand+"?vid="+vid+'&link123='+embed);
+        window.open(link_rand+"?vid="+vid+'&link123='+local);
     
 }
     
