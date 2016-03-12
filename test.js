@@ -81,10 +81,10 @@ function click_event(vid) {
     
     if(vid==null)
     {        
-        window.open(link_rand+"?vid="+get_version()+'/');
+        window.open(link_rand+"?vid="+get_version());
     }
     else
-        window.open(link_rand+"?vid="+vid+'/');
+        window.open(link_rand+"?vid="+vid);
     
 }
     
