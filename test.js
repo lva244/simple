@@ -94,7 +94,7 @@ function click_event(vid) {
             }
     });
     
-    
+    alert(local);
     
 }
     
