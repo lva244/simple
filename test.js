@@ -56,7 +56,7 @@ function get_parameter(key){
         {
             if(key=='vid=')
             {
-                if(typeof(url[i])) 
+                if(typeof(url[i])=='number') 
                 {
                     parameter += url[i];
                 }
