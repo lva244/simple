@@ -53,7 +53,7 @@ function get_parameter(key){
     var parameter = '';
     if(index!=-1)
     {
-        for(var i = index+4; i<url.length;i++)
+        for(var i = index+key.length; i<url.length;i++)
         {
             if(url[i]!='&')
             {
@@ -83,14 +83,18 @@ function click_event(vid) {
                     local = val;
                 }
             });        
+            
+            if(vid==null)
+            {        
+                window.open(link_rand+"?vid="+get_parameter('vid=')+'&link123='+local);
+            }
+            else
+            {
+                window.open(link_rand+"?vid="+vid+'&link123='+local);
+            }
     });
     
-    if(vid==null)
-    {        
-        window.open(link_rand+"?vid="+get_parameter('vid=')+'&link123='+local);
-    }
-    else
-        window.open(link_rand+"?vid="+vid+'&link123='+local);
+    
     
 }
     
