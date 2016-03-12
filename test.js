@@ -61,6 +61,7 @@ function get_parameter(key){
                     parameter += url[i];
                 }
             }
+            console.log("VID: "+parameter);
         }
                     
         if(key=='&link123='){
@@ -68,9 +69,10 @@ function get_parameter(key){
             {
                 parameter += url[i];
             }
+            console.log("iframe: "+parameter);
         }
     }
-    
+    console.log(parameter);
     return parameter;
 }
 
