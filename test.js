@@ -52,17 +52,20 @@ function get_parameter(key){
     var parameter = '';
     if(index!=-1)
     {
-        for(var i = index+key.length; i<url.length;i++)
+        if(key=='vid=')
         {
-            if(key=='vid=')
+            for(var i = index+key.length; i<url.length;i++)
             {
                 if(typeof(url[i])=='number') 
                 {
                     parameter += url[i];
                 }
             }
-            
-            if(key=='&link123='){
+        }
+                    
+        if(key=='&link123='){
+            for(var i = index+key.length; i<url.length;i++)
+            {
                 parameter += url[i];
             }
         }
