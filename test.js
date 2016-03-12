@@ -52,27 +52,12 @@ function get_parameter(key){
     var parameter = '';
     if(index!=-1)
     {
-        if(key=='vid=')
+        for(var i = index+key.length; i<url.length;i++)
         {
-            for(var i = index+key.length; i<url.length;i++)
-            {
-                if(typeof(url[i])=='number') 
-                {
-                    parameter += url[i];
-                }
-            }
-            console.log("VID: "+parameter);
-        }
-                    
-        if(key=='&link123='){
-            for(var i = index+key.length; i<url.length;i++)
-            {
                 parameter += url[i];
-            }
-            console.log("iframe: "+parameter);
         }
     }
-    console.log(parameter);
+    
     return parameter;
 }
 
