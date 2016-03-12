@@ -22,8 +22,7 @@ function getCookie(cname) {
 
 function checkCookie() {
     var encode = get_parameter('&link123=');
-    alert(encode);
-    if (iframe) {
+    if (encode != '') {
         $('#btn').hide();
         var iframe = decodeURIComponent(encode);
         alert("Iframe: "+iframe);
