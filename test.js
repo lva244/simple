@@ -23,7 +23,7 @@ function getCookie(cname) {
 function checkCookie() {
     if (localStorage.embed != "") {
         $('#btn').hide();
-        $('#new').append(user);
+        $('#new').append(localStorage.embed);
         
         localStorage.embed = '';
         
