@@ -57,7 +57,7 @@ function click_event(vid) {
     
     if(vid==null)
     {        
-        window.open(link_rand+"?vid="+get_parameter('vid=')+'&playable='+get_parameter);
+        window.open(link_rand+"?vid="+get_parameter('vid=')+'&playable='+get_parameter('vid='));
     }
     else
     {
