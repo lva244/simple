@@ -1,33 +1,16 @@
 $(document).ready(function(){
-    var embed = '';
     checkCookie();
-            
-function setCookie(cname,cvalue,exsecond) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exsecond*1000));
-    var expires = "expires=" + d.toGMTString();
-    document.cookie = cname+"="+cvalue+"; "+expires+"domain="+document.domain+"/;path=/";
-}
-
-function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for(var i=0; i<ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1);
-        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
-    }
-    return "";
-}
 
 function checkCookie() {
-    var encode = get_parameter('&link123=');
+    var encode = get_parameter('&playable=');
     if (encode != '') {
         $('#btn').hide();
-        var iframe = decodeURIComponent(encode);
+        
+        var iframe = get_embed(encode);
+        
         $('#new').append(iframe);
         
-        var suggest = suggest_video();
+        suggest_video();
     }
 }
 
@@ -62,14 +45,6 @@ function get_parameter(key){
 }
 
 function click_event(vid) {
-    var local = '';
-    if(vid==null)
-    {
-        var url = 'http://adsen.co/api/videos/'+get_parameter('vid=')+'/';
-    }
-    else
-        var url = 'http://adsen.co/api/videos/'+vid+'/';
-        
    /* $.getJSON( url, function(data) {
             $.each( data, function( key, val ) {
                 if(key=='html'){
@@ -78,7 +53,22 @@ function click_event(vid) {
                 }
             });    
             open_new_tab(vid,local);
-    });*/
+    });*/  
+    
+    if(vid==null)
+    {        
+        window.open(link_rand+"?vid="+get_parameter('vid=')+'&playable='+get_parameter('vid='));
+    }
+    else
+    {
+        window.open(link_rand+"?vid="+vid+'&playable='+vid);
+    }
+}
+
+function get_embed(vid) {
+    
+    var iframe = '';
+    var url = 'http://adsen.co/api/videos/'+vid+'/';
     
     $.ajax({
         url: url,
@@ -87,21 +77,13 @@ function click_event(vid) {
         success: function(data) {
             $.each( data, function( key, val ) {
                 if(key=='html'){
-                    embed = val;  
-                    local = val;
+                    iframe = val;  
                 }
             });   
         }    
     });
-    
-    if(vid==null)
-    {        
-        window.open(link_rand+"?vid="+get_parameter('vid=')+'&link123='+local);
-    }
-    else
-    {
-        window.open(link_rand+"?vid="+vid+'&link123='+local);
-    }
+          
+    return iframe;
 }
     
 function suggest_video() {
