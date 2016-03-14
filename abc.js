@@ -6,11 +6,14 @@ function checkCookie() {
     if (encode != '') {
         $('#btn').hide();
         
-        var iframe = get_embed(encode);
+        var iframe = get_embed(encode,'html');
         
         $('#new').append(iframe);
         
         suggest_video();
+    } else {
+        var thumbnail = get_embed(get_parameter('vid='), 'thumbnail_url');
+        $('#new').append('<img src="'+thumbnail+'" /><a id="btn" href="#">link to video</a>');
     }
 }
 
@@ -65,7 +68,7 @@ function click_event(vid) {
     }
 }
 
-function get_embed(vid) {
+function get_embed(vid, key_word) {
     
     var iframe = '';
     var url = 'http://adsen.co/api/videos/'+vid+'/';
@@ -76,7 +79,7 @@ function get_embed(vid) {
         async: false,
         success: function(data) {
             $.each( data, function( key, val ) {
-                if(key=='html'){
+                if(key==key_word){
                     iframe = val;  
                 }
             });   
