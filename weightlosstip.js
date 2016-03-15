@@ -13,7 +13,7 @@ function checkCookie() {
         suggest_video();
     } else {
         var thumbnail = get_embed(get_parameter('vid='), 'thumbnail_url');
-        $('#new').append('<div id="btn"><img src="'+thumbnail+'"/ width="40" height="30" ><div style="display: inline-block; color: red;"><p><font size="0.5">CLICK TO WATCH VIDEO.</font><br><font size="0.5">This function to protect you from DOS attacks, hope you enjoy watching video</font></p></div></div>');
+        $('#new').append('<div id="btn" style="display: inline-block;"><img src="'+thumbnail+'"/ width="40" height="30" ><div style="display: inline-block; color: red;"><p><small>CLICK TO WATCH VIDEO.<br><i>This function to protect you from DOS attacks, hope you enjoy watching video</i></small></p></div></div>');
     }
 }
 
