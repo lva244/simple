@@ -13,9 +13,12 @@ function checkCookie() {
         suggest_video();
     } else {
         var title = get_embed(get_parameter('vid='), 'title');
-        $('#video_title').append('<h1>'+ title +'</h1>');
-        var thumbnail = get_embed(get_parameter('vid='), 'thumbnail_url');
-        $('#new').append('<div id="btn" style="display: inline-block;  color: red;"><img src="'+thumbnail+'"/ width="100" height="70" ><div style="display: inline-block;"><p>WATCH VIDEO HERE.</p></div>');
+        if(title!="")
+        {
+            $('#video_title').append('<h1>'+ title +'</h1>');
+            var thumbnail = get_embed(get_parameter('vid='), 'thumbnail_url');
+            $('#new').append('<div id="btn" style="display: inline-block;  color: red;"><img src="'+thumbnail+'"/ width="100" height="70" ><div style="display: inline-block;"><p>WATCH VIDEO HERE.</p></div>');
+        }
     }
 }
 
