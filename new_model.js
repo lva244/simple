@@ -29,11 +29,11 @@ function add_video(vid, link_thumbnail) {
         
         if(i%2==0)
         {
-            $('#suggest_video_1').append("<img id="+vid[i]+" class='thumb' src="+link_thumbnail[i]+" height='100' width='150' >");
+            $('#suggest_video_1').append('<img id="'+vid[i]+'" src="'+link_thumbnail[i]+'" style="width:100px; height:100px">');
         }
         else
         {
-            $('#suggest_video_2').append("<img id="+vid[i]+" class='thumb' src="+link_thumbnail[i]+" height='100' width='150' >");
+            $('#suggest_video_2').append('<img id="'+vid[i]+'" src="'+link_thumbnail[i]+'" style="width:100px; height:100px">');
         }
         
         //video click
