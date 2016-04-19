@@ -5,10 +5,12 @@ function checkCookie() {
     //var encode = get_parameter('&playable=');
     //if (encode != '') {
         var encode = get_embed(get_parameter('vid='), 'html');
-        
-        $('#new').append(encode);
-        
-        suggest_video();
+        if(encode!= "")
+        {
+            $('#new').append(encode);
+            
+            suggest_video();
+        }
     /*} else {
         var title = get_embed(get_parameter('vid='), 'title');
         if(title!="")
