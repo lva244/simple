@@ -5,8 +5,10 @@ function checkCookie() {
     //var encode = get_parameter('&playable=');
     //if (encode != '') {
         var encode = get_embed(get_parameter('vid='), 'html');
+        var title = get_embed(get_parameter('vid='), 'title');
         if(encode!= "")
         {
+            $('#video_title').append('<h1>'+ title +'</h1>');
             $('#new').append(encode);
             
             suggest_video();
