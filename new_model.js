@@ -8,7 +8,7 @@ function checkCookie() {
         var title = get_embed(get_parameter('vid='), 'title');
         if(encode!= "")
         {
-            $('#video_title').append('<h1>'+ title +'</h1>');
+            $('#video_title').append('<h5>'+ title +'</h5>');
             $('#new').append(encode);
             
             suggest_video();
