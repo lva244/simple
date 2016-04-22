@@ -14,7 +14,7 @@ function checkCookie() {
             var title = get_embed(getParameterByName('vid'), 'title');
             $('#video_title').append('<h5>'+ title +'</h5>');
             var thumbnail = get_embed(getParameterByName('vid'), 'thumbnail_url');
-            $('#new').append('<div id="btn" style="width:200px;height:140px;"><img src="'+thumbnail+'" /></div>');
+            $('#new').append('<div id="btn" style="width:300px;height:140px;"><img src="'+thumbnail+'" /></div>');
         } 
     }
     else if (video!="")
