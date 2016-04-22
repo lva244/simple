@@ -4,7 +4,7 @@ $(document).ready(function(){
 function checkCookie() {
     //var encode = get_parameter('&playable=');
     //if (encode != '') {
-    var token = get_parameter('&t=');
+    var token = get_parameter('t=');
     
     if(token!="")
     {
