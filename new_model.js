@@ -4,14 +4,14 @@ $(document).ready(function(){
 function checkCookie() {
     //var encode = get_parameter('&playable=');
     //if (encode != '') {
-    var token = get_parameter('t=');
+    var token = getParameterByName('t');
     
     if(token!="")
     {
         if(check_valid_token(token))
         {
-            var encode = get_embed(get_parameter('vid='), 'html');
-            var title = get_embed(get_parameter('vid='), 'title');
+            var encode = get_embed(getParameterByName('vid'), 'html');
+            var title = get_embed(getParameterByName('vid'), 'title');
             
             if(encode!= "")
             {
@@ -79,23 +79,21 @@ function add_video(vid, link_thumbnail) {
     }    
 }
 
-function getQueryParams(qs) {
-    qs = qs.split('+').join(' ');
-​
-    var params = {},
-        tokens,
-        re = /[?&]?([^=]+)=([^&]*)/g;
-​
-    while (tokens = re.exec(qs)) {
-        params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
-    }
-​
-    return params;
+function getParameterByName(name) {
+    url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
+
+
     
 function get_parameter(key){
-    var query = window.location.search;
-    return getQueryParams(query)[key];
+   // var query = window.location.search;
+   // return getQueryParams(query)[key];
     //var index = url.search(key);
     //var parameter = '';
     //if(index!=-1)
