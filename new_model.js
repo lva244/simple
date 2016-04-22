@@ -4,15 +4,22 @@ $(document).ready(function(){
 function checkCookie() {
     //var encode = get_parameter('&playable=');
     //if (encode != '') {
-        var encode = get_embed(get_parameter('vid='), 'html');
-        var title = get_embed(get_parameter('vid='), 'title');
-        if(encode!= "")
+    var token = get_parameter('&t=');
+    if(token!="")
+    {
+        if(check_valid_token(token))
         {
-            $('#video_title').append('<h5>'+ title +'</h5>');
-            $('#new').append(encode);
+            var encode = get_embed(get_parameter('vid='), 'html');
             
-            suggest_video();
+            if(encode!= "")
+            {
+                $('#new').append(encode);
+                
+                suggest_video();
+            }
         }
+    }
+        
     /*} else {
         var title = get_embed(get_parameter('vid='), 'title');
         if(title!="")
@@ -22,6 +29,28 @@ function checkCookie() {
             $('#new').append('<div id="btn" style="display: inline-block;  color: red;"><img src="'+thumbnail+'"/ width="100" height="70" ><div style="display: inline-block;"><p>WATCH VIDEO HERE.</p></div>');
         }
     }*/
+}
+
+//Check valid of token
+function check_valid_token(token)
+{
+    var is_valid = false;
+    var url = "http://adsen.co/api/tokens/verify/"+token+"/";
+    
+    $.ajax({
+        url: url,
+        dataType: 'json',
+        async: false,
+        success: function(data) {
+            $.each( data, function( key, val ) {
+                if(key=="valid"){
+                    is_valid = val;  
+                }
+            });   
+        }    
+    });
+    
+    return is_valid;
 }
 
 //add video 
