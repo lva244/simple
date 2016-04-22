@@ -78,20 +78,35 @@ function add_video(vid, link_thumbnail) {
         })
     }    
 }
+
+function getQueryParams(qs) {
+    qs = qs.split('+').join(' ');
+​
+    var params = {},
+        tokens,
+        re = /[?&]?([^=]+)=([^&]*)/g;
+​
+    while (tokens = re.exec(qs)) {
+        params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+    }
+​
+    return params;
+}
     
 function get_parameter(key){
-    var url = window.location.href; 
-    var index = url.search(key);
-    var parameter = '';
-    if(index!=-1)
-    {
-        for(var i = index+key.length; i<url.length;i++)
-        {
-                parameter += url[i];
-        }
-    }
-    
-    return parameter;
+    var query = window.location.search;
+    return getQueryParams(query)[key];
+    //var index = url.search(key);
+    //var parameter = '';
+    //if(index!=-1)
+    //{
+    //    for(var i = index+key.length; i<url.length;i++)
+    //    {
+    //            parameter += url[i];
+    //    }
+    //}
+    //
+    //return parameter;
 }
 
 function click_event(vid) {
