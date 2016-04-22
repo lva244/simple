@@ -5,22 +5,27 @@ function checkCookie() {
     //var encode = get_parameter('&playable=');
     //if (encode != '') {
     var token = getParameterByName('t');
+    var video = getParameterByName('playable');
     
     if(token!="")
     {
         if(check_valid_token(token))
         {
-            var encode = get_embed(getParameterByName('vid'), 'html');
             var title = get_embed(getParameterByName('vid'), 'title');
-            
-            if(encode!= "")
-            {
-                $('#new').append(encode);
-                $('#video_title').append('<h5>'+ title +'</h5>');
-                
-                suggest_video();
-            }
-        }
+            $('#video_title').append('<h5>'+ title +'</h5>');
+            var thumbnail = get_embed(getParameterByName('vid'), 'thumbnail_url');
+            $('#new').append('<div id="btn" style="width:200px;height:140px;><img src="'+thumbnail+'"/" ></div>');
+        } 
+    }
+    else if (video!="")
+    {
+        var title = get_embed(getParameterByName('vid'), 'title');
+        var iframe = get_embed(getParameterByName('vid'), 'html');
+        $('#video_title').append('<h5>'+ title +'</h5>');
+        
+        $('#new').append(iframe);
+        
+        suggest_video();
     }
         
     /*} else {
@@ -87,40 +92,18 @@ function getParameterByName(name) {
     if (!results) return null;
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, " "));
-}
-
-
-    
-function get_parameter(key){
-   // var query = window.location.search;
-   // return getQueryParams(query)[key];
-    //var index = url.search(key);
-    //var parameter = '';
-    //if(index!=-1)
-    //{
-    //    for(var i = index+key.length; i<url.length;i++)
-    //    {
-    //            parameter += url[i];
-    //    }
-    //}
-    //
-    //return parameter;
-}
+} 
 
 function click_event(vid) {
-   /* $.getJSON( url, function(data) {
-            $.each( data, function( key, val ) {
-                if(key=='html'){
-                    embed = val;  
-                    local = val;
-                }
-            });    
-            open_new_tab(vid,local);
-    });*/  
     
-
-    window.open(link_rand+"?vid="+vid);
-
+    if(vid==null)
+    {        
+        window.open(link_rand+"?vid="+getParameterByName('vid')+'&playable='+getParameterByName('vid'));
+    }
+    else
+    {
+        window.open(link_rand+"?vid="+vid+'&playable='+vid);
+    }
 }
 
 function get_embed(vid, key_word) {
@@ -172,7 +155,7 @@ function suggest_video() {
     
     //btn click
     $('#btn').click(function(){
-        if(get_parameter('vid=')!='')
+        if(getParameterByName('vid')!='')
         {
             click_event(null);
         }
