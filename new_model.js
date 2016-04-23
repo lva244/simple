@@ -103,7 +103,7 @@ function click_event(vid) {
     {  
         if(check_valid_token(token))
         {
-            window.open(link_rand+"?vid="+getParameterByName('vid')+'&playable='+getParameterByName('vid')+'&t='+token+'&p=1');
+            window.open(link_rand+"?vid="+getParameterByName('vid')+'&playable='+getParameterByName('vid')+'&t='+token+'&pu='+'1');
         }
     }
     else
