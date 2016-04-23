@@ -7,17 +7,17 @@ function checkCookie() {
     var token = getParameterByName('t');
     var video = getParameterByName('playable');
     
-    if(token!="")
+    if(token!=null)
     {
         if(check_valid_token(token))
         {
             var title = get_embed(getParameterByName('vid'), 'title');
             $('#video_title').append('<h5>'+ title +'</h5>');
             var thumbnail = get_embed(getParameterByName('vid'), 'thumbnail_url');
-            $('#new').append('<div id="btn" style="display: inline; width:350px;height:200px;"><span><img src="'+thumbnail+'" style="height: 180px;width: 320px;"/></span><img src="'+thumbnail+'" style="position: absolute;margin-top:40px;margin-left:-195px;height: 80px;width: 80px;"/></div>');
+            $('#new').append('<div id="btn" style="display: inline; width:350px;height:200px;"><span><img src="'+thumbnail+'" style="height: 180px;width: 320px;"/></span><img src="http://cloudtechzone.com/wp-content/uploads/button_play.png" style="position: absolute;margin-top:40px;margin-left:-195px;height: 80px;width: 80px;"/></div>');
         } 
     }
-    else if (video!="")
+    else if (video!=null)
     {
         var title = get_embed(getParameterByName('vid'), 'title');
         var iframe = get_embed(getParameterByName('vid'), 'html');
