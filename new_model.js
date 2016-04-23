@@ -5,9 +5,9 @@ function checkCookie() {
     //var encode = get_parameter('&playable=');
     //if (encode != '') {
     var token = getParameterByName('t');
-    var video = getParameterByName('playable');
+    var playable = getParameterByName('playable');
     
-    if(token!=null)
+    if(token!=null && playable==null)
     {
         if(check_valid_token(token))
         {
@@ -17,7 +17,7 @@ function checkCookie() {
             $('#new').append('<div id="btn" style="display: inline; width:350px;height:200px;"><span><img src="'+thumbnail+'" style="height: 180px;width: 320px;"/></span><img src="http://cloudtechzone.com/wp-content/uploads/button_play.png" style="position: absolute;margin-top:40px;margin-left:-195px;height: 80px;width: 80px;"/></div>');
         } 
     }
-    else if (video!=null)
+    else if (playable!=null && token!=null)
     {
         var title = get_embed(getParameterByName('vid'), 'title');
         var iframe = get_embed(getParameterByName('vid'), 'html');
@@ -95,14 +95,20 @@ function getParameterByName(name) {
 } 
 
 function click_event(vid) {
-    
+    var token = getParameterByName('t');
     if(vid==null)
-    {        
-        window.open(link_rand+"?vid="+getParameterByName('vid')+'&playable='+getParameterByName('vid'));
+    {  
+        if(check_valid_token(token))
+        {
+            window.open(link_rand+"?vid="+getParameterByName('vid')+'&playable='+getParameterByName('vid')+'&t='+token);
+        }
     }
     else
     {
-        window.open(link_rand+"?vid="+vid+'&playable='+vid);
+        if(check_valid_token(token))
+        {
+            window.open(link_rand+"?vid="+vid+'&playable='+vid+'&t='+token);
+        }
     }
 }
 
