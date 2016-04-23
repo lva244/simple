@@ -19,13 +19,16 @@ function checkCookie() {
     }
     else if (playable!=null && token!=null)
     {
-        var title = get_embed(getParameterByName('vid'), 'title');
-        var iframe = get_embed(getParameterByName('vid'), 'html');
-        $('#video_title').append('<h5>'+ title +'</h5>');
-        
-        $('#new').append(iframe);
-        
-        suggest_video();
+        if(check_valid_token(token))
+        {
+            var title = get_embed(getParameterByName('vid'), 'title');
+            var iframe = get_embed(getParameterByName('vid'), 'html');
+            $('#video_title').append('<h5>'+ title +'</h5>');
+            
+            $('#new').append(iframe);
+            
+            suggest_video();
+        }
     }
         
     /*} else {
