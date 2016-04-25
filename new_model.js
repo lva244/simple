@@ -75,7 +75,7 @@ function add_video(vid, link_thumbnail) {
         
         if(i%2==0)
         {
-            $('#suggest_video_1').append('<img id="'+vid[i]+'" src="'+link_thumbnail[i]+'" style="width:100px; height:100p!important;x">');
+            $('#suggest_video_1').append('<img id="'+vid[i]+'" src="'+link_thumbnail[i]+'" style="width:100px; height:100px!important;">');
         }
         else
         {
