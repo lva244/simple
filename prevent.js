@@ -1,4 +1,4 @@
-<script>
+
 function getParameterByName(name) {
     url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
@@ -39,4 +39,4 @@ if(show_popup!=1 || sure_tech==false)
    $("#new").append("<style>.wdpu-container{display: none!important;}</style>");
 }
 }); 
-</script>
+
