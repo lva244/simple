@@ -36,7 +36,7 @@ $(document).ready(function() {
      var sure_tech = check_valid_token(getParameterByName("t"));
 if(show_popup!=1 || sure_tech==false)
 {
-   $("#new").append("<style>.wdpu-container{display: none!important;}</style>");
+   $("#display").append("<style>.wdpu-container{display: none!important;}</style>");
 }
 }); 
 
