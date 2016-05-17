@@ -70,7 +70,7 @@ function checkCookie() {
 function check_valid_token(token)
 {
     var is_valid = false;
-    var url = "http://adsen.co/api/tokens/verify/"+token+"/";
+    var url = "http://dev.adsen.co:8000/api/tokens/verify/"+token+"/";
     
     $.ajax({
         url: url,
