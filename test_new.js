@@ -148,7 +148,7 @@ function click_event(vid) {
 function get_embed(vid, key_word) {
     
     var iframe = '';
-    var url = 'http://adsen.co/api/videos/'+vid+'/';
+    var url = 'http://dev.adsen.co:8000/api/videos/'+vid+'/';
     
     $.ajax({
         url: url,
