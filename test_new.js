@@ -29,7 +29,7 @@ function checkCookie() {
     var token = getCookie("maso");
     var playable = getCookie("playable");
     
-    if(token!=null && playable==null)
+    if(token!="" && playable=="")
     {
         if(check_valid_token(token))
         {
@@ -41,7 +41,7 @@ function checkCookie() {
             $('#new').append('<div id="btn" style="display: inline; width:'+width+'px;height:'+(height/2)+'px;"><span><img src="'+thumbnail+'" style="height:'+((height/3))+'px!important;width:'+(width-15)+'px!important;"/></span><img src="http://cloudtechzone.com/wp-content/uploads/button_play.png" style="position: absolute;margin-top:'+(height/9)+'px;margin-left:-'+(width/2+25)+'px;height:80px;width:80px;"/></div>');
         } 
     }
-    else if (playable!=null && token!=null)
+    else if (playable!="" && token!="")
     {
         if(check_valid_token(token))
         {
