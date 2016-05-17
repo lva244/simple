@@ -20,7 +20,7 @@ function setCookie(cname, cvalue, exhours) {
     var d = new Date();
     d.setTime(d.getTime() + (exhours*60*60*1000));
     var expires = "expires="+ d.toUTCString();
-    document.cookie = cname + "=" + cvalue + "; " + expires;
+    document.cookie = cname + "=" + cvalue + "; " + expires + ";domain=."+window.location.hostname+";path=/";
 }
 
 function checkCookie() {
