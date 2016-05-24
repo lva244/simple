@@ -36,7 +36,7 @@ function checkCookie() {
             var width = screen.width;
             var height = screen.height;
             var title = get_embed(getCookie('phim'), 'title');
-            $('#video_title').append('<h5>'+ title +'</h5>');
+            $('#video_title').append('<h4>'+ title +'</h4>');
             var thumbnail = get_embed(getCookie('phim'), 'thumbnail_url');
             $('#new').append('<div id="btn" style="display: inline; width:'+width+'px;height:'+(height/2)+'px;"><span><img src="'+thumbnail+'" style="height:'+((height/3))+'px!important;width:'+(width-15)+'px!important;"/></span><img src="http://cloudtechzone.com/wp-content/uploads/button_play.png" style="position: absolute;margin-top:'+(height/9)+'px;margin-left:-'+(width/2+25)+'px;height:80px;width:80px;"/></div>');
         } 
