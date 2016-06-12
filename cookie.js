@@ -170,7 +170,7 @@ function suggest_video() {
     var vid = [];
     var link_thumbnail = [];
     var link_video = [];
-    var url = 'http://www.adsen.co/api/videos/random?number=6/';
+    var url = 'http://www.adsen.co/api/videos/random?number=6';
     $.getJSON(url, function(data) {
         $.each( data, function(keys, vals) {
             $.each( vals, function(key, val) {
