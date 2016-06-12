@@ -35,9 +35,9 @@ function checkCookie() {
         {
             var width = screen.width;
             var height = screen.height;
-            var title = get_embed(getCookie('phim'), 'title');
+            var title = get_embed(getCookie('phim_uuid'), 'title');
             $('#video_title').append('<h4>'+ title +'</h4>');
-            var thumbnail = get_embed(getCookie('phim'), 'thumbnail_url');
+            var thumbnail = get_embed(getCookie('phim_uuid'), 'thumbnail_url');
             $('#new').append('<div id="btn" style="display: inline; width:'+width+'px;height:'+(height/2)+'px;"><span><img src="'+thumbnail+'" style="height:'+((height/3))+'px!important;width:'+(width-15)+'px!important;"/></span><img src="http://cloudtechzone.com/wp-content/uploads/button_play.png" style="position: absolute;margin-top:'+(height/9)+'px;margin-left:-'+(width/2+25)+'px;height:80px;width:80px;"/></div>');
         } 
     }
@@ -45,8 +45,8 @@ function checkCookie() {
     {
         if(check_valid_token(token))
         {
-            var title = get_embed(getCookie('phim'), 'title');
-            var iframe = get_embed(getCookie('phim'), 'html');
+            var title = get_embed(getCookie('phim_uuid'), 'title');
+            var iframe = get_embed(getCookie('phim_uuid'), 'html');
             $('#video_title').append('<h5>'+ title +'</h5>');
             
             $('#new').append(iframe);
@@ -127,7 +127,7 @@ function click_event(vid) {
     {  
         if(check_valid_token(token))
         {
-            setCookie("playable",getCookie("phim"),1);
+            setCookie("playable",getCookie("phim_uuid"),1);
             setCookie("pu",1,1);
             //window.open(link_rand+"?vid="+getParameterByName('vid')+'&playable='+getParameterByName('vid')+'&t='+token+'&pu='+'1');
             window.open(link_rand);
@@ -137,7 +137,7 @@ function click_event(vid) {
     {
         if(check_valid_token(token))
         {
-            setCookie("phim", vid, 1);
+            setCookie("phim_uuid", vid, 1);
             setCookie("pu", null, 1);
             //window.open(link_rand+"?vid="+vid+'&playable='+vid+'&t='+token);
             window.open(link_rand);
@@ -170,7 +170,7 @@ function suggest_video() {
     var vid = [];
     var link_thumbnail = [];
     var link_video = [];
-    var url = 'http://www.adsen.co/api/videos/random?number=6';
+    var url = 'http://www.adsen.co/api/videos/random?number=6/';
     $.getJSON(url, function(data) {
         $.each( data, function(keys, vals) {
             $.each( vals, function(key, val) {
@@ -194,7 +194,7 @@ function suggest_video() {
     
     //btn click
     $('#btn').click(function(){
-        if(getCookie('phim')!='')
+        if(getCookie('phim_uuid')!='')
         {
             click_event(null);
         }
