@@ -34,11 +34,12 @@ function checkCookie() {
         if(check_valid_token(token))
         {
             allow = true;
+            var embed = get_embed(getCookie('phim_uuid'));
             var width = screen.width;
             var height = screen.height;
-            var title = get_embed(getCookie('phim_uuid'), 'title');
+            var title = get_param_in_embed('title', embed);
             $('#video_title').append('<h4>'+ title +'</h4>');
-            var thumbnail = get_embed(getCookie('phim_uuid'), 'thumbnail_url');
+            var thumbnail = get_param_in_embed('thumbnail_url', embed);
             $('#new').append('<div id="btn" style="display: inline; width:'+width+'px;height:'+(height/2)+'px;"><span><img src="'+thumbnail+'" style="height:'+((height/3))+'px!important;width:'+(width-15)+'px!important;"/></span><img src="http://cloudtechzone.com/wp-content/uploads/button_play.png" style="position: absolute;margin-top:'+(height/9)+'px;margin-left:-'+(width/2+25)+'px;height:80px;width:80px;"/></div>');
         } 
     }
@@ -47,8 +48,9 @@ function checkCookie() {
         if(check_valid_token(token))
         {
             allow = true;
-            var title = get_embed(getCookie('phim_uuid'), 'title');
-            var iframe = get_embed(getCookie('phim_uuid'), 'html');
+            var embed = get_embed(getCookie('phim_uuid'));
+            var title = get_param_in_embed('title', embed);
+            var iframe = get_param_in_embed('html', embed);
             $('#video_title').append('<h5>'+ title +'</h5>');
             
             $('#new').append(iframe);
@@ -157,14 +159,22 @@ function get_embed(vid, key_word) {
         dataType: 'json',
         async: false,
         success: function(data) {
-            $.each( data, function( key, val ) {
-                if(key==key_word){
-                    iframe = val;  
-                }
-            });   
+            iframe = data;
         }    
     });
           
+    return iframe;
+}
+
+function get_param_in_embed(param, data)
+{
+    var iframe = '';
+    $.each( data, function( key, val ) {
+        if(key==param){
+            iframe = val;  
+        }
+    }); 
+    
     return iframe;
 }
     
