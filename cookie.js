@@ -33,6 +33,7 @@ function checkCookie() {
     {
         if(check_valid_token(token))
         {
+            allow = true;
             var width = screen.width;
             var height = screen.height;
             var title = get_embed(getCookie('phim_uuid'), 'title');
@@ -45,6 +46,7 @@ function checkCookie() {
     {
         if(check_valid_token(token))
         {
+            allow = true;
             var title = get_embed(getCookie('phim_uuid'), 'title');
             var iframe = get_embed(getCookie('phim_uuid'), 'html');
             $('#video_title').append('<h5>'+ title +'</h5>');
