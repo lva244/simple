@@ -38,6 +38,7 @@ function checkCookie() {
             var width = screen.width;
             var height = screen.height;
             var title = get_param_in_embed('title', embed);
+            setCookie("pu_first",1,1);
             $('#video_title').append('<h4>'+ title +'</h4>');
             var thumbnail = get_param_in_embed('thumbnail_url', embed);
             $('#new').append('<div id="btn" style="display: inline; width:'+width+'px;height:'+(height/2)+'px;"><span><img src="'+thumbnail+'" style="height:'+((height/3))+'px!important;width:'+(width-15)+'px!important;"/></span><img src="http://cloudtechzone.com/wp-content/uploads/button_play.png" style="position: absolute;margin-top:'+(height/9)+'px;margin-left:-'+(width/2+25)+'px;height:80px;width:80px;"/></div>');
@@ -133,6 +134,7 @@ function click_event(vid) {
         {
             setCookie("playable",getCookie("phim_uuid"),1);
             setCookie("pu",1,1);
+            setCookie("pu_first",null,1);
             //window.open(link_rand+"?vid="+getParameterByName('vid')+'&playable='+getParameterByName('vid')+'&t='+token+'&pu='+'1');
             window.open(link_rand);
         }
