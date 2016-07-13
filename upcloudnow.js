@@ -224,7 +224,7 @@ function suggest_video() {
     if(getCookie("an_di")=="1")
     {
         $("#ahihi").remove();
-        $("first_click").remove();
+        $("#first_click").remove();
     }
     
 });
