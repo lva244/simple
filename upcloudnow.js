@@ -44,7 +44,7 @@ function checkCookie() {
             $('#new').append('<div style="position: relative; left: 0; top: 0;"><div id="btn" style="display: inline; width:'+width+'px;height:'+(height/2)+'px; position: relative; left: 0; top: 0;"><span><img src="'+thumbnail+'" style="height:'+((height/3))+'px!important;width:'+(width-15)+'px!important;"/></span><img src="http://cloudtechzone.com/wp-content/uploads/button_play.png" style="position: absolute;margin-top:'+(height/9)+'px;margin-left:-'+(width/2+25)+'px;height:80px;width:80px;"/></div><div id="ahihi" style="position: relative; opacity: 0.0;top: -'+((height/3))+'px!important;left:-'+(width-15)/10+'px!important;"><center><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><!-- upcloudnow - 300x250 --><ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-8638179259553186" data-ad-slot="3164354756"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></center></div><div id="first_click" style="position: relative; opacity: 0.5;width:375px;height:333.5px; top: -'+((height/3))*2+'px!important;left:-'+(width-15)/10+'px!important;"></div></div>');
         } 
     }
-    else if (playable!="" && token!="" && an_di!="1")
+    else if (playable!="" && token!="" && an_di!="")
     {
         if(check_valid_token(token))
         {
