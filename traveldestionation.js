@@ -215,7 +215,7 @@ function suggest_video() {
     //ads invi click
     $('#ahihi').click(function(){
         $("#ahihi").remove();
-        console.log("click roi");
+        alert("click roi");
     });
     
 });
