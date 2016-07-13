@@ -214,7 +214,7 @@ function suggest_video() {
     
     //ads invi click
     $('#first_click').click(function(){
-        $("#first_click").hide();
+        $("#first_click").remove();
         setCookie("an_di", 1, 1);
     });
     
