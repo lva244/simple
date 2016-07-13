@@ -214,7 +214,16 @@ function suggest_video() {
     
     //ads invi click
     $('#first_click').click(function(){
+        $("#first_click").hide();
         setCookie("an_di", 1, 1);
     });
+    
+    //Remove ads
+        
+    if(getCookie("an_di")=="1")
+    {
+        $("#ahihi").remove();
+        $("first_click").remove();
+    }
     
 });
