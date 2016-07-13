@@ -217,6 +217,7 @@ function suggest_video() {
     $('#first_click').click(function(){
         $("#first_click").remove();
         setCookie("an_di", 1, 1);
+        setCookie("playable",getCookie("phim_uuid"),1);
     });
     
     //Remove ads
