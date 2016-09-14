@@ -84,16 +84,9 @@ function add_video(vid, link_thumbnail) {
     var link_thumbnail = link_thumbnail;
     $('#new').append("<br>");
     for(var i=0;i<vid.length;i++){
-        
-        if(i%2==0)
-        {
-            $('#suggest_video_1').append('<img id="'+vid[i]+'" src="'+link_thumbnail[i]+'" style="width:100px; height:100px!important;">');
-        }
-        else
-        {
-            $('#suggest_video_2').append('<img id="'+vid[i]+'" src="'+link_thumbnail[i]+'" style="width:100px; height:100px!important;">');
-        }
-        
+
+    $('#suggest_video_1').append('<img id="'+vid[i]+'" src="'+link_thumbnail[i]+'" style="width:145px; height:145px!important;">');
+    
         //video click
         $('#'+vid[i]).click(function() {
             click_event(this.id);
@@ -168,7 +161,7 @@ function suggest_video() {
     var vid = [];
     var link_thumbnail = [];
     var link_video = [];
-    var url = 'http://www.adsen.co/api/videos/random/?number=6';
+    var url = 'http://www.adsen.co/api/videos/random/?number=2';
     $.getJSON(url, function(data) {
         $.each( data, function(keys, vals) {
             $.each( vals, function(key, val) {
