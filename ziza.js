@@ -29,21 +29,7 @@ function checkCookie() {
     var token = getCookie("maso");
     var playable = getCookie("playable");
     
-    if(token!="" && playable=="")
-    {
-        if(check_valid_token(token))
-        {
-            allow = true;
-            var embed = get_embed(getCookie('phim_uuid'));
-            var width = screen.width;
-            var height = screen.height;
-            var title = get_param_in_embed('title', embed);
-            $('#video_title').append('<h4>'+ title +'</h4>');
-            var thumbnail = get_param_in_embed('thumbnail_url', embed);
-            $('#new').append('<div id="btn" style="display: inline; width:'+width+'px;height:'+(height/2)+'px;"><span><img src="'+thumbnail+'" style="height:'+((height/3))+'px!important;width:'+(width-15)+'px!important;"/></span><img src="http://cloudtechzone.com/wp-content/uploads/button_play.png" style="position: absolute;margin-top:'+(height/9)+'px;margin-left:-'+(width/2+25)+'px;height:80px;width:80px;"/></div>');
-        } 
-    }
-    else if (playable!="" && token!="")
+    if(token!="")
     {
         if(check_valid_token(token))
         {
@@ -99,14 +85,14 @@ function add_video(vid, link_thumbnail) {
     $('#new').append("<br>");
     for(var i=0;i<vid.length;i++){
         
-    /*    if(i%2==0)
-        {*/
+        if(i%2==0)
+        {
             $('#suggest_video_1').append('<img id="'+vid[i]+'" src="'+link_thumbnail[i]+'" style="width:100px; height:100px!important;">');
-    //    }
-    /*    else
+        }
+        else
         {
             $('#suggest_video_2').append('<img id="'+vid[i]+'" src="'+link_thumbnail[i]+'" style="width:100px; height:100px!important;">');
-        }*/
+        }
         
         //video click
         $('#'+vid[i]).click(function() {
@@ -182,7 +168,7 @@ function suggest_video() {
     var vid = [];
     var link_thumbnail = [];
     var link_video = [];
-    var url = 'http://www.adsen.co/api/videos/random/?number=2';
+    var url = 'http://www.adsen.co/api/videos/random/?number=6';
     $.getJSON(url, function(data) {
         $.each( data, function(keys, vals) {
             $.each( vals, function(key, val) {
