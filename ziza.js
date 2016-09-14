@@ -85,7 +85,7 @@ function add_video(vid, link_thumbnail) {
     $('#new').append("<br>");
     for(var i=0;i<vid.length;i++){
 
-    $('#suggest_video_1').append('<img id="'+vid[i]+'" src="'+link_thumbnail[i]+'" style="width:145px; height:145px!important;">');
+    $('#suggest_video_1').append('<img id="'+vid[i]+'" src="'+link_thumbnail[i]+'" style="width:150px; height:120px!important;padding-right:5px;">');
     
         //video click
         $('#'+vid[i]).click(function() {
