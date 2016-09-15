@@ -101,7 +101,10 @@ function add_video(vid, link_thumbnail) {
         
     //    if(i%2==0)
     //    {
-            $('#suggest_video_1').append('<img id="'+vid[i]+'" src="'+link_thumbnail[i]+'" style="width:150px; height:120px!important;padding-right:5px;">');
+            var width = screen.width;
+            var height = screen.height;
+    $('#suggest_video_1').append('<div id="btn" style="display: inline-block;"><span><img src="http://i.vimeocdn.com/video/567850029_295x166.jpg" style="height:'+((height/6))+'px!important;width:'+(width/2-10)+'px!important;padding-right:5px;"/></span><img src="http://cloudtechzone.com/wp-content/uploads/button_play.png" style="position: absolute;margin-top:'+(height/23)+'px;margin-left:-'+(width/3-10)+'px;height:50px;width:50px;"/></div>');
+
     //    }
   /*      else
         {
