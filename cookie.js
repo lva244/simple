@@ -40,7 +40,7 @@ function checkCookie() {
             var title = get_param_in_embed('title', embed);
             $('#video_title').append('<h4>'+ title +'</h4>');
             var thumbnail = get_param_in_embed('thumbnail_url', embed);
-            $('#new').append('<div id="btn" style="display: inline; width:'+width+'px;height:'+(height/2)+'px;"><span><img src="'+thumbnail+'" style="height:'+((height/3))+'px!important;width:'+(width-15)+'px!important;"/></span><img src="http://cloudtechzone.com/wp-content/uploads/button_play.png" style="position: absolute;margin-top:'+(height/9)+'px;margin-left:-'+(width/2+25)+'px;height:80px;width:80px;"/></div>');
+            $('#new').append('<div id="btn" style="display: inline; width:'+width+'px;height:'+(height/2)+'px;"><span><img src="'+thumbnail+'" style="height:'+((height/3))+'px!important;width:'+(width-15)+'px!important;"/></span><img src="http://i.imgur.com/csBlfh0.png" style="position: absolute;margin-top:'+(height/9)+'px;margin-left:-'+(width/2+25)+'px;height:80px;width:80px;"/></div>');
         } 
     }
     else if (playable!="" && token!="")
@@ -103,7 +103,7 @@ function add_video(vid, link_thumbnail) {
     //    {
             var width = screen.width;
             var height = screen.height;
-    $('#suggest_video_1').append('<div id="btn" style="display: inline-block;"><span><img src="http://i.vimeocdn.com/video/567850029_295x166.jpg" style="height:'+((height/6))+'px!important;width:'+(width/2-10)+'px!important;padding-right:5px;"/></span><img src="http://cloudtechzone.com/wp-content/uploads/button_play.png" style="position: absolute;margin-top:'+(height/23)+'px;margin-left:-'+(width/3-10)+'px;height:50px;width:50px;"/></div>');
+    $('#suggest_video_1').append('<div id="btn" style="display: inline-block;"><span><img src="'+link_thumbnail[i]+'" style="height:'+((height/6))+'px!important;width:'+(width/2-10)+'px!important;padding-right:5px;"/></span><img src="http://i.imgur.com/csBlfh0.png" style="position: absolute;margin-top:'+(height/23)+'px;margin-left:-'+(width/3-10)+'px;height:50px;width:50px;"/></div>');
 
     //    }
   /*      else
