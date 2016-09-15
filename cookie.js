@@ -103,7 +103,7 @@ function add_video(vid, link_thumbnail) {
     //    {
             var width = screen.width;
             var height = screen.height;
-    $('#suggest_video_1').append('<div id="btn" style="display: inline-block;"><span><img src="'+link_thumbnail[i]+'" style="height:'+((height/6))+'px!important;width:'+(width/2-10)+'px!important;padding-right:5px;"/></span><img src="http://i.imgur.com/csBlfh0.png" style="position: absolute;margin-top:'+(height/23)+'px;margin-left:-'+(width/3-10)+'px;height:50px;width:50px;"/></div>');
+    $('#suggest_video_1').append('<div id="'+vid[i]+'" style="display: inline-block;"><span><img src="'+link_thumbnail[i]+'" style="height:'+((height/6))+'px!important;width:'+(width/2-10)+'px!important;padding-right:5px;"/></span><img src="http://i.imgur.com/csBlfh0.png" style="position: absolute;margin-top:'+(height/23)+'px;margin-left:-'+(width/3-10)+'px;height:50px;width:50px;"/></div>');
 
     //    }
   /*      else
