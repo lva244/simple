@@ -85,7 +85,7 @@ function add_video(vid, link_thumbnail) {
     $('#new').append("<br>");
     for(var i=0;i<vid.length;i++){
 
-    $('#suggest_video_1').append('<img id="'+vid[i]+'" src="'+link_thumbnail[i]+'" style="width:150px; height:120px!important;padding-right:5px;">');
+    $('#suggest_video_1').append('<div style="display: inline-block;"><img id="'+vid[i]+'" src="'+link_thumbnail[i]+'" style="width:150px; height:120px!important;padding-right:5px;"><img src="http://cloudtechzone.com/wp-content/uploads/button_play.png" style="position: absolute;margin-top: -93px;margin-left: 45px;height:80px;width: 60px;display: inline-block;"></div>');
     
         //video click
         $('#'+vid[i]).click(function() {
