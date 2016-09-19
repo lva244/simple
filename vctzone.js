@@ -29,7 +29,7 @@ function checkCookie() {
     var token = getCookie("maso");
     var playable = getCookie("playable");
     
-    if(token!="" && playable=="")
+/*    if(token!="" && playable=="")
     {
         if(check_valid_token(token))
         {
@@ -44,7 +44,7 @@ function checkCookie() {
         } 
     }
     else if (playable!="" && token!="")
-    {
+    {*/
         if(check_valid_token(token))
         {
             allow = true;
@@ -57,7 +57,7 @@ function checkCookie() {
             
             suggest_video();
         }
-    }
+//    }
         
     /*} else {
         var title = get_embed(get_parameter('vid='), 'title');
