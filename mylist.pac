@@ -5,11 +5,16 @@ function FindProxyForURL(url, host) {
     //  Here's a list of hosts to connect via the PROXY server
     //
     var proxylist = new Array(
-        "*.kohls.com",
-        "*.target.com",
-        "*.eastbay.com",
-        "*.puritan.com",
-        "*.walmart.com"
+        "kohls.com",
+        "www.kohls.com",
+        "target.com",
+        "www.target.com",
+        "eastbay.com",
+        "www.eastbay.com",
+        "puritan.com",
+        "www.puritan.com",
+        "walmart.com",
+        "www.walmart.com"
     );
     // Return our proxy name for matched domains/hosts
     for(var i=0; i<proxylist.length; i++) {
@@ -18,5 +23,6 @@ function FindProxyForURL(url, host) {
             return "PROXY "+proxyserver;
         }
     }
+   
     return "DIRECT";
 }
